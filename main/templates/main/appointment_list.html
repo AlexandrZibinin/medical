@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<table class="table table-striped">
+    <thead>
+
+    </thead>
+    <tbody>
+        {% for appointment in object_list %}
+            <tr>
+                <th scope="row">{{ appointment.pk }}</th>
+                <td>{{ appointment.date_at }}</td>
+                <td>{{ appointment.service }}</td>
+                <td>{{ appointment.doctor }}</td>
+                <td>{{ appointment.service.price }} руб.</td>
+
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

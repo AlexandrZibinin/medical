@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 
+from django.urls import reverse_lazy
 from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,6 +22,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
     "main",
     "users",
 ]
@@ -103,7 +105,8 @@ NULLABLE = {'null': True, 'blank': True}
 
 AUTH_USER_MODEL = "users.User"
 
-LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "main:service"
+LOGOUT_REDIRECT_URL = "main:index"
+
 
 

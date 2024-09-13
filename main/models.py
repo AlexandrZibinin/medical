@@ -22,6 +22,7 @@ class Doctor(models.Model):
 class Service(models.Model):
     name = models.CharField(max_length=100, verbose_name="Название")
     description = models.TextField(**NULLABLE, verbose_name="Описание")
+    price = models.IntegerField(**NULLABLE, verbose_name="цена")
     image = models.ImageField(
         upload_to="static/service", **NULLABLE, verbose_name="Фото"
     )
@@ -41,7 +42,7 @@ class Appointment(models.Model):
     owner = models.ForeignKey(User, verbose_name="Пациент", on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.owner} в {self.name}"
+        return f"{self.owner} в {self.date_at}"
 
     class Meta:
         verbose_name = "Прием"

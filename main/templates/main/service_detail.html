@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="row text-center">
+
+        <div class="col-4">
+            <div class="card mb-6 box-shadow">
+                <div class="card-header">
+                    <h1 class="card-title pricing-card-title">{{ object.name }}</h1>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                        <li>- {{object.image}}</li>
+                        <li>- {{object.description}}</li>
+                        <li>- <h3>Цена: {{object.price}} Рублей</h3></li>
+                    </ul>
+                    <a class="btn btn-primary" href="{% url 'main:service' %}" role="button">Назад</a>
+                    <a class="btn btn-primary" href="{% url 'main:appointment_create' %}" role="button">Записаться</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
