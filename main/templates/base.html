@@ -162,6 +162,9 @@
                   <li class="nav-item">
                     <a class="btn btn-secondary" aria-current="page" href="{% url 'main:appointment' %}">Мои записи на прием</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="btn btn-secondary" aria-current="page" href="{% url 'main:appointment_create' %}">Записаться на прием</a>
+                  </li>
             <li class="nav-item">
                 <form method="post" action="{% url 'users:logout' %}">
                   {% csrf_token %}

@@ -39,7 +39,7 @@ class Appointment(models.Model):
     date_at = models.DateTimeField(auto_now=False, auto_now_add=False, verbose_name="Дата и время посещения")
     service = models.ForeignKey(Service, verbose_name="Услуга", on_delete=models.CASCADE)
     doctor = models.ForeignKey(Doctor, verbose_name="Врач", on_delete=models.CASCADE)
-    owner = models.ForeignKey(User, verbose_name="Пациент", on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, verbose_name="Пациент", on_delete=models.CASCADE, **NULLABLE)
 
     def __str__(self):
         return f"{self.owner} в {self.date_at}"
