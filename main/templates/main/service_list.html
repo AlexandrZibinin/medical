@@ -2,16 +2,24 @@
 {% load static %}
 
 {% block content %}
+<div>
+    <div class="row justify-content-md-center">
+        <h5>Наши услуги</h5>
+    </div>
 
-        {% for service in object_list %}
-            <<div class="card" style="width: 18rem;">
-              <img src="{{ service.image }}" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">{{ service.name }}</h5>
-                <p class="card-text">{{ service.description }}</p>
-                <a href="{% url 'main:service_detail' service.pk %}" class="btn btn-primary">Подробнее</a>
-              </div>
+    {% for service in object_list %}
+        <div class="row">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ service.image }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ service.name }}</h5>
+                    <p class="card-text">{{ service.description }}</p>
+                    <a href="{% url 'main:service_detail' service.pk %}" class="btn btn-primary">Подробнее</a>
+                </div>
             </div>
-        {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+
 
 {% endblock %}
