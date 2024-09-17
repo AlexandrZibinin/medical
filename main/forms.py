@@ -6,4 +6,4 @@ from main.models import Appointment
 class AppointmentForm(ModelForm):
     class Meta:
         model = Appointment
-        exclude = ("owner",)
+        exclude = ("owner", "result",)

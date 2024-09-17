@@ -93,6 +93,32 @@
     </div>
 </div>
 
+<div class="row">
+    <h5>Контакты</h5>
+    <div class="container">
+    {% for contact in contacts %}
+    <table class="table table-striped">
+        <tr>
+            <td class="w-25"> Адрес </td>
+            <td>{{ contact.address }}</td>
+        </tr>
+        <tr>
+            <td class="w-25">Телефон</td>
+            <td>{{ contact.phone }}</td>
+        </tr>
+        <tr>
+            <td class="w-25">Почта</td>
+            <td>{{ contact.email }}</td>
+        </tr>
+        <tr>
+            <td class="w-25">Карта проезда</td>
+            <td><img src="{{ contact.image }}"></td>
+        </tr>
+    </table>
+    {% endfor %}
+    </div>
+</div>
+
 </div><!-- /.container -->
 
 {% endblock %}

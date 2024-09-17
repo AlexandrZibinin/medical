@@ -15,6 +15,7 @@
                 <td>{{ appointment.service }}</td>
                 <td>{{ appointment.doctor }}</td>
                 <td>{{ appointment.service.price }} руб.</td>
+                <td>{{ appointment.result.result }}</td>
                 <td><a class="btn btn-primary" href="{% url 'main:appointment_detail' appointment.pk %}" role="button">Подробности</a></td>
             </tr>
         {% endfor %}

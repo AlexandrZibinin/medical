@@ -4,7 +4,7 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from rest_framework.reverse import reverse_lazy
 
 from main.forms import AppointmentForm
-from main.models import Service, Appointment, Doctor
+from main.models import Service, Appointment, Doctor, ContactsCompany, ResultAppointment
 
 
 class IndexView(TemplateView):
@@ -13,14 +13,22 @@ class IndexView(TemplateView):
     def get_context_data(self, **kwargs):
         doctors = Doctor.objects.all()
         service = Service.objects.all()
+        contacts = ContactsCompany.objects.all()
         context = super().get_context_data(**kwargs)
         context['doctors'] = doctors
         context['services'] = service
+        context['contacts'] = contacts
         return context
 
 
 class ContactsView(TemplateView):
     template_name = "contacts_view.html"
+
+    def get_context_data(self, **kwargs):
+        contacts = ContactsCompany.objects.all()
+        context = super().get_context_data(**kwargs)
+        context['contacts'] = contacts
+        return context
 
 
 class CompanyView(TemplateView):
@@ -84,6 +92,14 @@ class AppointmentUpdateView(DetailView, LoginRequiredMixin):
 class AppointmentDeleteView(DetailView, LoginRequiredMixin):
     model = Appointment
     success_url = reverse_lazy('main:appointment')
+
+
+# class ResultAppointmentListView(ListView):
+#     model = ResultAppointment
+#
+#
+# class ResultAppointmentDetailView(DetailView):
+#     model = ResultAppointment
 
 
 class DoctorListView(ListView):

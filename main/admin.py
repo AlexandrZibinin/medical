@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from main.models import Doctor, Service, Appointment
+from main.models import Doctor, Service, Appointment, ContactsCompany, ResultAppointment
 
 
 @admin.register(Doctor)
@@ -19,6 +19,16 @@ class ServiceAdmin(admin.ModelAdmin):
 
 @admin.register(Appointment)
 class AppointmentAdmin(admin.ModelAdmin):
-    list_display = ("date_at", "service", "doctor", "owner",)
-    list_filter = ("date_at", "service", "doctor", "owner",)
-    search_fields = ("date_at", "service", "doctor", "owner",)
+    list_display = ("date_at", "service", "doctor", "owner", "result",)
+    list_filter = ("date_at", "service", "doctor", "owner", "result",)
+    search_fields = ("date_at", "service", "doctor", "owner", "result",)
+
+
+@admin.register(ContactsCompany)
+class ContactsCompanyAdmin(admin.ModelAdmin):
+    list_display = ("address", "image", "phone", "email",)
+
+
+@admin.register(ResultAppointment)
+class ResultAppointmentAdmin(admin.ModelAdmin):
+    list_display = ("date", "result",)
